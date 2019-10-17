@@ -24,7 +24,7 @@ jobs: # ステップの集合
           key: circleci-demo-java-spring-{{ checksum "web-app/pom.xml" }}
 
       - run: 
-          working_directory: ./web-app/
+          working_directory: web-app
           command: mvn package # 実際のテストを実行します
 
       - store_test_results: # CircleCI ダッシュボードにテストメタデータを表示できるように、`target/surefire-reports` ディレクトリからアップロードします
