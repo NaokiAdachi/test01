@@ -17,8 +17,8 @@ jobs: # ステップの集合
           key: circleci-demo-java-spring-{{ checksum "web-app/pom.xml" }}
 
       - run: 
-        working_directory: ./web-app/
-        mvn dependency:go-offline # プロジェクトの依存関係を取得します
+          working_directory: ./web-app/
+          mvn dependency:go-offline # プロジェクトの依存関係を取得します
 
       - save_cache: # プロジェクトの依存関係を保存します
           paths:
