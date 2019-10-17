@@ -16,7 +16,10 @@ jobs: # ステップの集合
           # 依存関係キャッシュについては https://circleci.com/docs/ja/2.0/caching/ をお読みください
           key: circleci-demo-java-spring-{{ checksum "web-app/pom.xml" }}
 
-      - run: mvn dependency:go-offline # プロジェクトの依存関係を取得します
+      - run:
+          name: offline_test01
+          working_directory: web-app
+          command: mvn dependency:go-offline # プロジェクトの依存関係を取得します
 
       - save_cache: # プロジェクトの依存関係を保存します
           paths:
